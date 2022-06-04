@@ -1,0 +1,37 @@
+[package]
+name = "actix-http-fuzz"
+version = "0.0.0"
+authors = ["Automatically generated"]
+publish = false
+edition = "2018"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+actix-codec = "0.5"
+bytes = "1"
+tokio = { version = "1", features = ["rt"] }
+
+[dependencies.actix-http]
+path = ".."
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[profile.release]
+debug = 1
+
+[[bin]]
+name = "parse_quality_item"
+path = "fuzz_targets/parse_quality_item.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "decode_h1"
+path = "fuzz_targets/decode_h1.rs"
+test = false
+doc = false
