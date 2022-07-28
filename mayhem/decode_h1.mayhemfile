@@ -1,0 +1,7 @@
+project: actix-web
+target: decode-h1
+
+cmds:
+  - cmd: /decode_h1
+  - cmd: /decode_h1_no_inst @@
+    libfuzzer: false

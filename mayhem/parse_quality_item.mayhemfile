@@ -1,0 +1,7 @@
+project: actix-web
+target: parse-quality-item
+
+cmds:
+  - cmd: /parse_quality_item
+  - cmd: /parse_quality_item_no_inst @@
+    libfuzzer: false
